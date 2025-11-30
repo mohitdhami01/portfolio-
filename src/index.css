@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark tech theme - default to dark mode */
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Neon blue primary */
+    --primary: 217 91% 60%;
+    --primary-foreground: 222 47% 8%;
+
+    /* Neon purple secondary */
+    --secondary: 270 91% 65%;
+    --secondary-foreground: 222 47% 8%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Neon cyan accent */
+    --accent: 180 91% 60%;
+    --accent-foreground: 222 47% 8%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 20%;
+    --input: 217 32% 15%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Neon glow effects */
+    --glow-primary: 0 0 20px hsl(217 91% 60% / 0.5);
+    --glow-secondary: 0 0 20px hsl(270 91% 65% / 0.5);
+    --glow-accent: 0 0 20px hsl(180 91% 60% / 0.5);
+    
+    /* Gradient definitions */
+    --gradient-neon: linear-gradient(135deg, hsl(217 91% 60%), hsl(270 91% 65%));
+    --gradient-subtle: linear-gradient(180deg, hsl(222 47% 8%), hsl(222 47% 11%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .glow-border-primary {
+    border: 1px solid hsl(var(--primary));
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.5), inset 0 0 15px hsl(var(--primary) / 0.1);
+  }
+
+  .glow-border-secondary {
+    border: 1px solid hsl(var(--secondary));
+    box-shadow: 0 0 15px hsl(var(--secondary) / 0.5), inset 0 0 15px hsl(var(--secondary) / 0.1);
+  }
+
+  .gradient-neon {
+    background: var(--gradient-neon);
+  }
+
+  .gradient-text {
+    background: var(--gradient-neon);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
